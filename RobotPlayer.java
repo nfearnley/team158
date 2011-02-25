@@ -23,15 +23,17 @@ public class RobotPlayer implements Runnable
             try
             {
                 // Debug Information
-                /*
-                 * myRC.setIndicatorString(0, myRC.getChassis().toString());
-                 * String components = ""; for (ComponentController comp :
-                 * myRC.components()) { components += comp.type().toString() +
-                 * " "; } myRC.setIndicatorString(1, components);
-                 * myRC.setIndicatorString(2,
-                 * String.valueOf(Clock.getBytecodeNum()));
-                 */   
-                myRC.addMatchObservation("I am stupid.");
+                
+                myRC.setIndicatorString(1, myRC.getChassis().toString());
+                ComponentController [] comps = myRC.components();
+                String complist = "";
+                for (ComponentController comp : comps)
+                {
+                    complist += comp.type().toString() + " ";
+                }
+                myRC.setIndicatorString(2, complist);
+                    
+                //myRC.components()
                 myRC.yield();     
             }
             catch (Exception e)
